@@ -3,11 +3,8 @@ package kr.co.koscom.marketdata.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -20,13 +17,7 @@ public class HttpClientUtil {
 		HttpURLConnection conn = null;
 		StringBuilder sb = new StringBuilder();
 		try {
-			StringBuilder urlBuilder = new StringBuilder(
-					"https://sandbox-apigw.koscom.co.kr/v2/market/stocks/{marketcode}/{issuecode}/price"
-							.replace("{marketcode}", URLEncoder.encode("kospi", "UTF-8"))
-							.replace("{issuecode}", URLEncoder.encode("005930", "UTF-8")));
-			urlBuilder.append("?");
-			urlBuilder.append(URLEncoder.encode("apikey", "UTF-8") + "="
-					+ URLEncoder.encode("l7xx230ef2235e34448c982eb192ac98e206", "UTF-8"));
+			
 			URL url = new URL(urlstring);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
