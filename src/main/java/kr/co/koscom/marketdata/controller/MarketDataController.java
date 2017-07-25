@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
 import kr.co.koscom.marketdata.api.MarketDataApiCaller;
+import kr.co.koscom.marketdata.model.Debt;
 import kr.co.koscom.marketdata.model.Price;
 
 @Controller

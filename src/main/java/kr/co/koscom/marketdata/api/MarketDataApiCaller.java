@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kr.co.koscom.marketdata.model.Debt;
 import kr.co.koscom.marketdata.model.Price;
 import kr.co.koscom.marketdata.util.HttpClientUtil;
 
@@ -41,6 +42,11 @@ public class MarketDataApiCaller {
 			e.printStackTrace();
 		}
 		
+		return null;
+	}
+	
+	public Debt getDebt(String issueCode) {
+		// TODO [실습 3-04] 종목 코드를 입력 받아 Fabot의 재무정보 API를 이용하여 해당 종목(기업)의 부채율 정보를 화면에 json형태로 출력한다.
 		return null;
 	}
 }
