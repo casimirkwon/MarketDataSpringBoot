@@ -47,6 +47,21 @@ public class MarketDataApiCaller {
 	
 	public Debt getDebt(String issueCode) {
 		// TODO [실습 3-04] 종목 코드를 입력 받아 Fabot의 재무정보 API를 이용하여 해당 종목(기업)의 부채율 정보를 화면에 json형태로 출력한다.
+			
+		try {
+			String jsonStr = httpClientUtil.execute("https://sandbox-apigw.koscom.co.kr/v1/fabotdw/debt/" + issueCode + "?apikey=" + APIKEY);
+			System.out.println(jsonStr);
+			JsonNode node = objectMapper.readTree(jsonStr);
+			
+			Debt debt = objectMapper.readValue(node.findValue("result").toString(), Debt.class);
+			
+			return debt;
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 }
